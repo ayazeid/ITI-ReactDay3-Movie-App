@@ -13,9 +13,14 @@ function Home() {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const searchHandle = (keyword) => {
+    //todo handle search
+  };
+
   return (
     <>
-      <NavBar />
+      <NavBar search={(keyword) => searchHandle(keyword)} />
       <MoviesList movies={movies} />
     </>
   );

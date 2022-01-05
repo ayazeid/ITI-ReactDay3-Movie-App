@@ -100,7 +100,7 @@ function LoginForm() {
           <Button
             name="Login"
             type="submit"
-            styling=" btn btn-outline-light btn-dark"
+            styling=" btn btn-outline-light btn-dark m-4"
           />
           <Link
             to="/register"

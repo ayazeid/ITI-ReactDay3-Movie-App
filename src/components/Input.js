@@ -8,7 +8,7 @@ function Input(props) {
     inputHandle(e);
   };
   return (
-    <div className="m-3 p-2">
+    <div className="">
       <label htmlFor={type} className="form-label float-start ">
         {title}
       </label>

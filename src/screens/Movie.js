@@ -20,7 +20,7 @@ function Movie(props) {
     <>
       <NavBar />
       <Container className="shadow mt-5 p-4 ">
-        <Row>
+        <Row lg={2} sm={1} xs={1}>
           <Col>
             <Image poster={movie.poster_path} />
           </Col>

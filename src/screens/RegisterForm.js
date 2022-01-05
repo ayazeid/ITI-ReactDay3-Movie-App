@@ -217,7 +217,7 @@ function RegisterForm() {
           <Button
             name="Register"
             type="submit"
-            styling=" btn btn-dark btn-outline-light"
+            styling=" btn btn-dark btn-outline-light m-3"
           />
           <Link
             to="/login"
