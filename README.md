@@ -1,4 +1,6 @@
-# This a project for ITI-Program ReactJS Course Day 3 task [Movie App]
+# This a project for ITI-Program ReactJS Course Day 3 + Day 4 task [Movie App ]
+
+### API resource: https://www.themoviedb.org/
 
 # Getting Started with Create React App
 

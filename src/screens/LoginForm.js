@@ -81,7 +81,7 @@ function LoginForm() {
         className="contianer shadow p-2 bg-dark text-light"
         style={{ maxWidth: 700, margin: "auto", marginTop: 30 }}
       >
-        <TextHead title="Login Form" color=" text-light" />
+        <TextHead title="Login Form" color=" display-5 text-light" />
         <form className="m-5" onSubmit={(e) => submitHandle(e)}>
           <Input
             title="Email Address"
@@ -104,7 +104,7 @@ function LoginForm() {
           />
           <Link
             to="/register"
-            className="float-end text-warning"
+            className="float-end text-info"
             style={{ textDecoration: "none" }}
           >
             Not user yet? Register

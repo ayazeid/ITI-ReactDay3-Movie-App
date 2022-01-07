@@ -3,12 +3,26 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
 //bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+//import reducer from reducers folder
+import reducer from "./reducers";
+//import createStore from redux
+import { createStore } from "redux";
+//import Provider from react-redux
+import { Provider } from "react-redux";
+//import redux devtools
+import { composeWithDevTools } from "redux-devtools-extension";
+
+//createStore
+const store = createStore(reducer, composeWithDevTools());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

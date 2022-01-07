@@ -9,8 +9,9 @@ function InfoField(props) {
         {name}
       </span>
       {Array.isArray(info) ? (
-        info.map((i) => (
+        info.map((i, index) => (
           <span
+            key={index}
             className="text-info text-justify text-wrap "
             style={{ marginRight: 15 }}
           >

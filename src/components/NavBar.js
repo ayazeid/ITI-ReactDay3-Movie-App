@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { search } from "../actions";
 import Button from "./Button";
 import Input from "./Input";
+
 function NavBar(props) {
   const [searchInput, setInput] = useState("");
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
   const handleSearch = (e) => {
     const input = e.target.value;
     setInput(input);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.search(searchInput);
+    dispatch(search(searchInput));
+    history.push({ pathname: "/search" });
   };
+  useEffect(() => {}, [searchInput]);
   return (
     <Navbar bg="dark" className="shadow" expand="lg" variant="dark">
       <div className="container-fluid mx-2 ">
@@ -29,6 +38,13 @@ function NavBar(props) {
               to="/"
             >
               HOME
+            </Link>
+            <Link
+              className="text-light mx-5"
+              style={{ textDecoration: "none" }}
+              to="/favorites"
+            >
+              Favorites
             </Link>
           </Nav>
           <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>

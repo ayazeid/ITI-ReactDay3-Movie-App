@@ -4,7 +4,6 @@ import InfoField from "./InfoField";
 
 function Description(props) {
   const { movie } = props;
-  console.log(movie.genres);
   return (
     <Card style={{ padding: 0, border: "none" }} className="bg-dark">
       <Card.Body className="text-start">

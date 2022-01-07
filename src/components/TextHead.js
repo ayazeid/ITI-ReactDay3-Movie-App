@@ -4,7 +4,7 @@ function TextHead(props) {
   const { title, color } = props;
   return (
     <div className="p-2">
-      <h1 className={"display-5  m-4 " + color}>{title}</h1>
+      <h1 className={"  m-5 " + color}>{title}</h1>
     </div>
   );
 }

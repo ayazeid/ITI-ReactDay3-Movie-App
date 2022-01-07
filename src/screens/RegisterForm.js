@@ -172,7 +172,7 @@ function RegisterForm() {
         className="contianer shadow p-2 bg-dark text-light"
         style={{ maxWidth: 700, margin: "auto", marginTop: 30 }}
       >
-        <TextHead title="Register form" color="text-light" />
+        <TextHead title="Register form" color=" display-5 text-light" />
         <form className="m-5" onSubmit={(e) => submitHandle(e)}>
           <Input
             title="Name"
@@ -221,7 +221,7 @@ function RegisterForm() {
           />
           <Link
             to="/login"
-            className="float-end text-warning"
+            className="float-end text-info"
             style={{ textDecoration: "none" }}
           >
             Already have account? Login
