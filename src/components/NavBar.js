@@ -47,13 +47,21 @@ function NavBar(props) {
               Favorites
             </Link>
           </Nav>
-          <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+          <Form
+            className="d-flex"
+            onSubmit={(e) => handleSubmit(e)}
+            style={{ alignItems: "center" }}
+          >
             <Input
               name="search"
               type="text"
               inputHandle={(e) => handleSearch(e)}
+              styling=" p-0"
             />
-            <Button name="Search" styling=" btn btn-dark btn-outline-info" />
+            <Button
+              name="Search"
+              styling=" btn btn-dark text-info btn-sm m-1 p-1 "
+            />
           </Form>
           <Nav>
             <Link

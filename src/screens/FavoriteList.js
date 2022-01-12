@@ -9,11 +9,7 @@ function FavoriteList(props) {
   const [favs, updateFavs] = useState([]);
 
   useEffect(() => {
-    updateFavs(
-      movies.filter((movie, i) => {
-        return movies.indexOf(movie) === i;
-      })
-    );
+    updateFavs([...movies]);
   }, [movies]);
 
   return (

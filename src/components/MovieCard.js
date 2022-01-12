@@ -29,8 +29,6 @@ function MovieCard(props) {
       dispatch(addFavorite(movie));
       setFave(true);
     }
-
-    //console.log(state, "from card");
   };
 
   return (
@@ -50,14 +48,14 @@ function MovieCard(props) {
         <Icon
           styling="card-img-overlay  "
           name={"delete"}
-          toggle={(e, icon) => toggler(e, icon)}
+          toggle={(e) => toggler(e)}
         />
       ) : (
         <Icon
           styling="card-img-overlay  "
           color="#fbc107"
           name={fav ? "star" : "unstar"}
-          toggle={(e, icon) => toggler(e, icon)}
+          toggle={(e) => toggler(e)}
         />
       )}
       <Link to={`/movie/${movie.id}`} style={{ textDecoration: "none" }}>

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Star,
-  StarBorder,
-  DeleteForever,
-  DeleteForeverSharp,
-} from "@mui/icons-material";
+import { Star, StarBorder, DeleteForeverSharp } from "@mui/icons-material";
 function Icon(props) {
   const { styling, color, name, toggle } = props;
   return (
@@ -17,7 +12,6 @@ function Icon(props) {
         marginTop: 0,
         marginRight: 3,
       }}
-      onClick={(e) => toggle(e, name)}
     >
       {name === "unstar" ? (
         <StarBorder
@@ -27,7 +21,7 @@ function Icon(props) {
             textShadow: "4px 6px",
             fontSize: "40px",
           }}
-          onClick={(e) => toggle(e, name)}
+          onClick={toggle}
         />
       ) : name === "star" ? (
         <Star
@@ -37,6 +31,7 @@ function Icon(props) {
             textShadow: "4px 6px gold",
             fontSize: "40px",
           }}
+          onClick={toggle}
         />
       ) : (
         name === "delete" && (
@@ -47,7 +42,7 @@ function Icon(props) {
               textShadow: "4px 6px gold",
               fontSize: "40px",
             }}
-            onClick={(e) => toggle(e, name)}
+            onClick={toggle}
           />
         )
       )}
