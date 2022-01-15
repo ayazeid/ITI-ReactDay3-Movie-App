@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { LoadingBar } from "react-redux-loading";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import FavoriteList from "./screens/FavoriteList";
@@ -7,10 +9,12 @@ import LoginForm from "./screens/LoginForm";
 import Movie from "./screens/Movie";
 import RegisterForm from "./screens/RegisterForm";
 import Search from "./screens/Search";
-function App() {
+
+function App(props) {
   return (
     <div className="App">
       <BrowserRouter>
+        <LoadingBar />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/login" component={LoginForm} />
@@ -24,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);

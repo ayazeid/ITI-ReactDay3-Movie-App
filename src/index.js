@@ -9,14 +9,15 @@ import "bootstrap/dist/css/bootstrap.css";
 //import reducer from reducers folder
 import reducer from "./reducers";
 //import createStore from redux
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 //import Provider from react-redux
 import { Provider } from "react-redux";
 //import redux devtools
 import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 //createStore
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>

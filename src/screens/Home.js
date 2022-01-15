@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import Category from "../components/Category";
 import NavBar from "../components/NavBar";
 
-function Home() {
+function Home(props) {
   return (
     <>
       <NavBar />
@@ -13,4 +14,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default connect()(Home);
