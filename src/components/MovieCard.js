@@ -16,7 +16,7 @@ function MovieCard(props) {
     if (state.filter((m) => m.id === movie.id).length !== 0) {
       setFave(true);
     }
-  }, [fav]);
+  }, [fav, movie.id, state]);
 
   //add and remove from fav
   const toggler = (e) => {

@@ -25,7 +25,7 @@ function Category(props) {
         })
         .catch((err) => console.log(err));
     }
-  }, [type, page]);
+  }, [type, page, name]);
 
   const changePage = (e, newPage) => {
     setPage(newPage);
