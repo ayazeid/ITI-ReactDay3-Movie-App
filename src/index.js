@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 //import redux devtools
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import { LanguageContextProvider } from "./context/LanguageContext";
 
 //createStore
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -22,7 +23,9 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <LanguageContextProvider>
+        <App />
+      </LanguageContextProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

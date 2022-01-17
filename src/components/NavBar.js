@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { ButtonBase } from "@mui/material";
+import React, { useEffect, useState, useContext } from "react";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { search } from "../actions";
+import { LanguageContext } from "../context/LanguageContext";
 import Button from "./Button";
 import Input from "./Input";
 
 function NavBar(props) {
+  const { lang, setLang } = useContext(LanguageContext);
+  //console.log("from nav", lang);
   const [searchInput, setInput] = useState("");
   const history = useHistory();
 
@@ -72,6 +76,14 @@ function NavBar(props) {
               LOGIN
             </Link>
           </Nav>
+          <Button
+            name={lang}
+            styling="btn btn-info btn-sm"
+            onPress={() => {
+              setLang((lang) => (lang === "en" ? "ar" : "en"));
+              console.log("i am button", lang);
+            }}
+          />
         </Navbar.Collapse>
       </div>
     </Navbar>
