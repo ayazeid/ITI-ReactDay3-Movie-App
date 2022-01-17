@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "react-bootstrap";
+import { LanguageContext } from "../context/LanguageContext";
+import { content } from "../translatation/translation";
 import InfoField from "./InfoField";
 
 function Description(props) {
   const { movie } = props;
+  const { lang, setLang } = useContext(LanguageContext);
   return (
-    <Card style={{ padding: 0, border: "none" }} className="bg-dark">
-      <Card.Body className="text-start">
-        <InfoField name="Title" info={movie.title} />
-        <InfoField name="Overview" info={movie.overview} />
-        <InfoField name="Release Date" info={movie.release_date} />
-        <InfoField name="Original Language" info={movie.original_language} />
-        <InfoField name="Genres" info={movie.genres} />
+    <Card
+      style={{ padding: 0, border: "none" }}
+      className="bg-dark"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
+      <Card.Body className={lang === "ar" ? "text-end" : "text-start"}>
+        <InfoField name={content[lang].title} info={movie.title} />
+        <InfoField name={content[lang].overview} info={movie.overview} />
+        <InfoField
+          name={content[lang].release_date}
+          info={movie.release_date}
+        />
+        <InfoField
+          name={content[lang].original_lang}
+          info={movie.original_language}
+        />
+        <InfoField name={content[lang].genres} info={movie.genres} />
 
         <InfoField
-          name="Production Companies"
+          name={content[lang].production_companies}
           info={movie.production_companies}
         />
         <InfoField
-          name="Production Countries"
+          name={content[lang].production_countries}
           info={movie.production_countries}
         />
       </Card.Body>

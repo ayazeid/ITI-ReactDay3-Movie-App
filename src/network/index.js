@@ -11,7 +11,11 @@ export const imageBaseURL = "https://image.tmdb.org/t/p/w500/";
 
 //search api
 export const axiosSearch = axios.create({
-  baseURL: `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=`,
+  baseURL: `https://api.themoviedb.org/3/search/`,
+  params: {
+    api_key: apikey,
+    language: "en-US",
+  },
 });
 
 //get movies with params

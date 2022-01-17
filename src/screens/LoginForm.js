@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import NavBar from "../components/NavBar";
 import TextHead from "../components/TextHead";
+import { LanguageContext } from "../context/LanguageContext";
+import { content } from "../translatation/translation";
 
 function LoginForm() {
   const [state, setState] = useState({ email: "", password: "" });
   const [err, setError] = useState({ email: "", password: "" });
+  const { lang, setLang } = useContext(LanguageContext);
   const history = useHistory();
   //handle submit form
   const submitHandle = (e) => {
@@ -81,24 +84,24 @@ function LoginForm() {
         className="contianer shadow p-2 bg-dark text-light"
         style={{ maxWidth: 700, margin: "auto", marginTop: 30 }}
       >
-        <TextHead title="Login Form" color=" display-5 text-light" />
+        <TextHead title={content[lang].login} color=" display-5 text-light" />
         <form className="m-5" onSubmit={(e) => submitHandle(e)}>
           <Input
-            title="Email Address"
+            title={content[lang].email}
             name="email"
             type="email"
             inputHandle={(input) => formHandle(input)}
             errmsg={err.email}
           />
           <Input
-            title="Password"
+            title={content[lang].password}
             name="password"
             type="password"
             inputHandle={(input) => formHandle(input)}
             errmsg={err.password}
           />
           <Button
-            name="Login"
+            name={content[lang].login}
             type="submit"
             styling=" btn btn-outline-light btn-dark m-4"
           />
@@ -107,7 +110,7 @@ function LoginForm() {
             className="float-end text-info"
             style={{ textDecoration: "none" }}
           >
-            Not user yet? Register
+            {content[lang].noacc}
           </Link>
         </form>
       </div>

@@ -1,16 +1,15 @@
-import { ButtonBase } from "@mui/material";
 import React, { useEffect, useState, useContext } from "react";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { search } from "../actions";
 import { LanguageContext } from "../context/LanguageContext";
+import { content } from "../translatation/translation";
 import Button from "./Button";
 import Input from "./Input";
 
 function NavBar(props) {
   const { lang, setLang } = useContext(LanguageContext);
-  //console.log("from nav", lang);
   const [searchInput, setInput] = useState("");
   const history = useHistory();
 
@@ -26,29 +25,43 @@ function NavBar(props) {
     history.push({ pathname: "/search" });
   };
   useEffect(() => {}, [searchInput]);
+
+  const changeLang = () => {
+    setLang((lang) => (lang === "en" ? "ar" : "en"));
+  };
   return (
-    <Navbar bg="dark" className="shadow" expand="lg" variant="dark">
+    <Navbar
+      bg="dark"
+      className="shadow"
+      expand="lg"
+      variant="dark"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
       <div className="container-fluid mx-2 ">
         <Link to="/" className="text-light" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>Movies Night</Navbar.Brand>
+          <Navbar.Brand className="text-info">
+            {content[lang].brand}
+          </Navbar.Brand>
         </Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-between">
+          <Nav className="me-3">
             <Link
-              className="text-light mx-5"
+              className="text-light "
               style={{ textDecoration: "none" }}
               to="/"
             >
-              HOME
+              {content[lang].home}
             </Link>
+          </Nav>
+          <Nav className={lang === "ar" ? "me-3 ms-auto" : "me-auto ms-3"}>
             <Link
-              className="text-light mx-5"
+              className="text-light "
               style={{ textDecoration: "none" }}
               to="/favorites"
             >
-              Favorites
+              {content[lang].favorites}
             </Link>
           </Nav>
           <Form
@@ -57,13 +70,13 @@ function NavBar(props) {
             style={{ alignItems: "center" }}
           >
             <Input
-              name="search"
+              name={content[lang].search}
               type="text"
               inputHandle={(e) => handleSearch(e)}
               styling=" p-0"
             />
             <Button
-              name="Search"
+              name={content[lang].search}
               styling=" btn btn-dark text-info btn-sm m-1 p-1 "
             />
           </Form>
@@ -73,16 +86,13 @@ function NavBar(props) {
               style={{ textDecoration: "none", float: "right" }}
               to="/login"
             >
-              LOGIN
+              {content[lang].login}
             </Link>
           </Nav>
           <Button
             name={lang}
-            styling="btn btn-info btn-sm"
-            onPress={() => {
-              setLang((lang) => (lang === "en" ? "ar" : "en"));
-              console.log("i am button", lang);
-            }}
+            styling="btn btn-info btn-sm rounded-pill"
+            onPress={() => changeLang()}
           />
         </Navbar.Collapse>
       </div>

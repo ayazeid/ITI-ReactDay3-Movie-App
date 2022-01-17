@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import NavBar from "../components/NavBar";
 import TextHead from "../components/TextHead";
+import { LanguageContext } from "../context/LanguageContext";
+import { content } from "../translatation/translation";
 
 function RegisterForm() {
   const history = useHistory();
@@ -21,7 +23,7 @@ function RegisterForm() {
     password: "",
     cpassword: "",
   });
-
+  const { lang, setLang } = useContext(LanguageContext);
   //handle submit form
   const submitHandle = (e) => {
     e.preventDefault();
@@ -172,10 +174,13 @@ function RegisterForm() {
         className="contianer shadow p-2 bg-dark text-light"
         style={{ maxWidth: 700, margin: "auto", marginTop: 30 }}
       >
-        <TextHead title="Register form" color=" display-5 text-light" />
+        <TextHead
+          title={content[lang].register}
+          color=" display-5 text-light"
+        />
         <form className="m-5" onSubmit={(e) => submitHandle(e)}>
           <Input
-            title="Name"
+            title={content[lang].name}
             name="name"
             type="text"
             inputHandle={(input) => formHandle(input)}
@@ -183,7 +188,7 @@ function RegisterForm() {
             must
           />
           <Input
-            title="Email"
+            title={content[lang].email}
             name="email"
             type="email"
             inputHandle={(input) => formHandle(input)}
@@ -191,7 +196,7 @@ function RegisterForm() {
             must
           />
           <Input
-            title="User Name"
+            title={content[lang].username}
             name="username"
             type="text"
             inputHandle={(input) => formHandle(input)}
@@ -199,7 +204,7 @@ function RegisterForm() {
             must
           />
           <Input
-            title="Password"
+            title={content[lang].password}
             name="password"
             type="password"
             inputHandle={(input) => formHandle(input)}
@@ -207,7 +212,7 @@ function RegisterForm() {
             must
           />
           <Input
-            title="Confirm Password"
+            title={content[lang].cpassword}
             name="cpassword"
             type="password"
             inputHandle={(input) => formHandle(input)}
@@ -215,7 +220,7 @@ function RegisterForm() {
             must
           />
           <Button
-            name="Register"
+            name={content[lang].register}
             type="submit"
             styling=" btn btn-dark btn-outline-light m-3"
           />
@@ -224,7 +229,7 @@ function RegisterForm() {
             className="float-end text-info"
             style={{ textDecoration: "none" }}
           >
-            Already have account? Login
+            {content[lang].acc}
           </Link>
         </form>
       </div>

@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import { axiosInstance, apikey } from "../network";
+import { getInstance } from "../network";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from "../components/Image";
 import Description from "../components/Description";
+import { connect } from "react-redux";
 
 function Movie(props) {
   const { id } = props.match.params;
   const [movie, setMovie] = useState({});
+
   useEffect(() => {
-    axiosInstance
-      .get(`${id}?api_key=${apikey}`)
+    getInstance
+      .get(`/${id}`)
       .then((res) => {
-        setMovie(res.data);
+        setMovie(
+          props.location.state
+            ? { ...res.data, ...props.location.state }
+            : res.data
+        );
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, [id, props]);
   return (
     <>
       <NavBar />
@@ -33,4 +39,6 @@ function Movie(props) {
   );
 }
 
-export default Movie;
+export default connect(({ movies }) => {
+  return { movies };
+})(Movie);

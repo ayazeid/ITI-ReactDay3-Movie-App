@@ -7,13 +7,13 @@ function Note(props) {
       className={"container shadow rounded-pill  " + styling}
       style={{
         width: 600,
-        height: 200,
+        height: 100,
         margin: "auto",
         marginTop: "10rem",
-        padding: "4rem",
+        padding: "2rem",
       }}
     >
-      <p className={"text-center bg-transparent fs-2 "} style={{}}>
+      <p className={"text-center bg-transparent fs-3 "} style={{}}>
         {note}
       </p>
     </div>

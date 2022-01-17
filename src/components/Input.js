@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
 function Input(props) {
   const [input, setInput] = useState("");
   const { title, name, type, styling, inputHandle, errmsg, must } = props;
+  const { lang, setLand } = useContext(LanguageContext);
   const handleChange = (e) => {
     setInput(e.target.value);
     inputHandle(e);
   };
   return (
-    <div className="">
-      <label htmlFor={type} className="form-label float-start ">
+    <div className="" dir={lang === "ar" ? "rtl" : "ltr"}>
+      <label
+        htmlFor={type}
+        className={
+          lang === "ar" ? "form-label float-end " : "form-label float-start"
+        }
+      >
         {title}
       </label>
       <input

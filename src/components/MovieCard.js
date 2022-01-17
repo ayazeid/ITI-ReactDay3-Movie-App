@@ -58,7 +58,10 @@ function MovieCard(props) {
           toggle={(e) => toggler(e)}
         />
       )}
-      <Link to={`/movie/${movie.id}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={{ pathname: `/movie/${movie.id}`, state: movie }}
+        style={{ textDecoration: "none" }}
+      >
         <Card.Img
           className="img-fluid"
           variant="top"
