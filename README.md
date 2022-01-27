@@ -1,4 +1,4 @@
-# This a project for ITI-Program ReactJS Course Day 3 + Day 4 task [Movie App ]
+# This a project for ITI-Program ReactJS Course Day 3 + Day 4 + Day 5 tasks [Movie App ]
 
 ### API resource: https://www.themoviedb.org/
 
