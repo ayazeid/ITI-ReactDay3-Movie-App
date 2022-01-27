@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
 import { getInstance } from "../network";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from "../components/Image";
@@ -24,7 +23,6 @@ function Movie(props) {
   }, [id, props]);
   return (
     <>
-      <NavBar />
       <Container className="shadow mt-5 p-4 ">
         <Row lg={2} sm={1} xs={1}>
           <Col>

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { LoadingBar } from "react-redux-loading";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import FavoriteList from "./screens/FavoriteList";
 import Home from "./screens/Home";
 import LoginForm from "./screens/LoginForm";
@@ -15,6 +17,7 @@ function App(props) {
     <div className="App">
       <BrowserRouter>
         <LoadingBar />
+        <NavBar />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/login" component={LoginForm} />
@@ -23,6 +26,7 @@ function App(props) {
           <Route path="/movie/:id" render={(props) => <Movie {...props} />} />
           <Route path="/search" render={() => <Search />} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

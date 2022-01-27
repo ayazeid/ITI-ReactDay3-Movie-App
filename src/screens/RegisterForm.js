@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import NavBar from "../components/NavBar";
 import TextHead from "../components/TextHead";
 import { LanguageContext } from "../context/LanguageContext";
 import { content } from "../translatation/translation";
@@ -169,7 +168,6 @@ function RegisterForm() {
 
   return (
     <>
-      <NavBar />
       <div
         className="contianer shadow p-2 bg-dark text-light"
         style={{ maxWidth: 700, margin: "auto", marginTop: 30 }}
